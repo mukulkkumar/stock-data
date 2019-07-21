@@ -24,7 +24,7 @@ setup(
     ],
     packages=["stock_data_reader"],
     include_package_data=True,
-    install_requires=["requests"],
+    install_requires=["requests", "bs4"],
     entry_points={
         "console_scripts": [
             "stock-data-reader=stock_data_reader.stockreader:StockReader",
