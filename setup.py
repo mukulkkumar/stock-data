@@ -9,7 +9,7 @@ def readme():
 
 setup(
     name="stock-data-reader",
-    version="1.0.3",
+    version="1.0.6",
     description="A Python Package to get the stock data price for a company.",
     long_description=readme(),
     long_description_content_type="text/markdown",
@@ -24,7 +24,7 @@ setup(
     ],
     packages=["stock_data_reader"],
     include_package_data=True,
-    install_requires=["requests", "bs4"],
+    install_requires=["requests"],
     entry_points={
         "console_scripts": [
             "stock-data-reader=stock_data_reader.stockreader:StockReader.read_data",
