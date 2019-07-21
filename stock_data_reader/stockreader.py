@@ -25,10 +25,24 @@ class StockReader:
     """
 
     @staticmethod
-    def read_data(company_name):
+    def read_data():
         """
         :exception Exception: the exception will print the error and exit
         """
+        # create argument parser object
+        parser = argparse.ArgumentParser(description="Stock Data Reader")
+
+        parser.add_argument("-q", "--query", type=str, nargs=1,
+                            metavar="company", default=None, help="Company")
+
+        # parse the arguments from standard input
+        try:
+            args = parser.parse_args()
+            company_name = args.query[0]
+        except Exception:
+            print('Please write cmd like this:= stock-data-reader -q tcs')
+            sys.exit()
+
         while True:
             try:
                 response = requests.get('https://in.finance.yahoo.com/quote/'
@@ -48,16 +62,4 @@ class StockReader:
 
 
 if __name__ == "__main__":
-    # create argument parser object
-    parser = argparse.ArgumentParser(description="Stock Data Reader")
-
-    parser.add_argument("-q", "--query", type=str, nargs=1,
-                        metavar="company", default=None, help="Company")
-
-    # parse the arguments from standard input
-    try:
-        args = parser.parse_args()
-        StockReader.read_data(args.query[0])
-    except Exception:
-        print('Please pass parameter like:- -q tcs')
-        sys.exit()
+    StockReader.read_data()
