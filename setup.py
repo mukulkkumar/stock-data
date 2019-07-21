@@ -9,7 +9,7 @@ def readme():
 
 setup(
     name="stock-data-reader",
-    version="1.0.6",
+    version="1.0.7",
     description="A Python Package to get the stock data price for a company.",
     long_description=readme(),
     long_description_content_type="text/markdown",
